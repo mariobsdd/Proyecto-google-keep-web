@@ -1,24 +1,18 @@
+//Mario Barrientos - 13039
+//Falta hacer separacion de modulos
 import { createStore, combineReducers } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import {Router, browserHistory} from 'react-router';
 import deepFreeze from 'deep-freeze';
 import expect from 'expect';
 import v4 from 'uuid-v4';
 import '../styles/style.scss';
-
-//import routes from './routes';
-
 import { todos } from './reducers/todos';
 import { elements } from './reducers/elements';
 import { visibilityFilterElements } from './reducers/visibility';
-import { configurations } from './reducers/configuration';
-//import ElementsApp from './components/elementsApp';
-
-//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { configurations } from './reducers/configurations';
 
 const { Component } = React;
-
 const todoApp = combineReducers({
   elements,
   visibilityFilterElements,
@@ -45,7 +39,6 @@ const saveState = (state) => {
 }
 
 const store = createStore(todoApp, loadState());
-
 const Header = ({element, onUpdateTitle}) => {
   let input;
   return (
@@ -86,14 +79,13 @@ const GeneralFooter = ({ currentVisibilityFilter, onFilterClicked }) => (
 
 const AddElement = ({ onAddTodoList, onAddNote }) => {
   let input;
-
   return (
     <div>
       <h2 class="title">Bienvenido a Chapin Keep</h2>
-      <div class="add-element">
+      <div class="new-element">
         <input 
           type="text" 
-          placeholder={ 'Escribe una nota o un To-Do' }
+          placeholder={ 'Escribe una nota' }
           ref={ node => input = node } 
           onKeyDown={
             (event) => {
@@ -164,7 +156,6 @@ const getVisibleElements = (elements, visibilityFilter, configurations) => {
   if(visibilityFilter === 'SHOW_NOTES')
     return elements.filter(t => t.isNote).filter(t => !t.archived);
   
-
   if(visibilityFilter === 'SHOW_TODOS')
     return elements.filter(t => !t.isNote).filter(t => !t.archived);
 }
@@ -253,9 +244,7 @@ const Element = ({ element, colors}) => {
       <div>
         <p class="inline-text">Ult. vez modificado: {element.modified_date}</p>
       </div>
-      <div
-        class="colors"
-      >
+      <div class="colors">
         {colors.map(color => (
           <button
             class="color"
@@ -335,9 +324,7 @@ const ElementsApp = ({ elements, visibilityFilterElements, configurations }) => 
         }
       }
     />
-    <div
-      class="container"
-    >
+    <div class="container">
       <AddElement
         onAddNote={
           (text) => {
@@ -363,7 +350,6 @@ const ElementsApp = ({ elements, visibilityFilterElements, configurations }) => 
           }
         }
         />
-        
 
         <ElementList
         elements={ getVisibleElements(elements, visibilityFilterElements, configurations) }
@@ -380,7 +366,6 @@ const ElementsApp = ({ elements, visibilityFilterElements, configurations }) => 
           });
         }
       } />
-
 
   </div>
 );
@@ -402,7 +387,6 @@ const FilterLink = ({ visibilityFilter, currentVisibilityFilter, onFilterClicked
     { children }</a>
 }
 
-
 const getVisibleTodos = (todos, visibilityFilter) => {
   if(visibilityFilter === 'SHOW_ALL'){
     return todos;
@@ -421,13 +405,11 @@ const Todo = ({ todo, onTodoClicked, onRemoveTodo, onUpdateTodo}) => {
   let input;
   return (
     <div class="todo">
-      <input
-        type='checkbox'
+      <input type='checkbox'
         defaultChecked={ todo.completed }
         onClick={ onTodoClicked }
       />
-      <input
-        type="text"
+      <input type="text"
         style={{
         textDecoration: todo.completed ? 'line-through' : 'none'
         }}
@@ -455,7 +437,6 @@ const TodoList = ({ todos, onTodoClicked, onRemoveTodo, onUpdateTodo }) => (
           onUpdateTodo={ onUpdateTodo }
         />
         );
-        
     })
     }
   </div>
@@ -465,13 +446,10 @@ const AddTodo = ({ onAddTodo, children }) => {
   let input;
 
   return (
-    <div
-      class="add-todo"
-    >
-      <input 
-        type="text" 
+    <div class="new-todo">
+      <input type="text" 
         ref={ node => input = node } 
-        placeholder="Nuevo Todo"
+        placeholder="Nuevo To-Do"
         onKeyDown={
           (event) => {
             if(event.keyCode === 13){
@@ -486,9 +464,7 @@ const AddTodo = ({ onAddTodo, children }) => {
 }
 
 const Footer = ({ currentVisibilityFilter, onFilterClicked }) => (
-  <div
-    class="footer"
-  >
+  <div class="footer">
     Filtra Por:
     <FilterLink
       visibilityFilter="SHOW_ALL"
@@ -585,8 +561,6 @@ const render = () => {
     document.getElementById('root')
   );
 };
-
-
 render();
 store.subscribe(render);
 store.subscribe( () => {
