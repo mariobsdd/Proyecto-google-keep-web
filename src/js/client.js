@@ -98,8 +98,7 @@ const AddElement = ({ onAddTodoList, onAddNote }) => {
         />
       </div>
       <div class="sub-container">
-        <button
-          class="btn"
+        <button class="btn"
           onClick={
             () => { 
               onAddNote(input.value);
@@ -236,7 +235,7 @@ const Element = ({ element, colors}) => {
             });
           } 
         }
-      >A</button>
+      >X</button>
       { value }
       <div>
         <p class="inline-text">Creado: {element.create_date} </p>
@@ -286,7 +285,7 @@ const SearchElement = ({onSearchElement, configurations}) => {
   return (
     <div class="head">
       <img class="logo" src="./media/logo.png" height="120px" width="120px"/>
-      <div class="search-bar">
+      <div class="navbar">
         <input
           placeholder={ 'Busca aquí lo que quieras.' }
           defaultValue= { configurations.search }
@@ -301,7 +300,7 @@ const SearchElement = ({onSearchElement, configurations}) => {
             }
           } 
         />
-        <img class="icon" src="./media/lupa.png" height="35px" width="35px"/>
+        <img class="icon" src="./media/lupa.png" height="25px" width="25px"/>
         </div>
     </div>
 
