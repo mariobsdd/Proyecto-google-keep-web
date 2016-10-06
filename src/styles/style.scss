@@ -1,0 +1,244 @@
+$backcolor: #C7EDFF;
+$element-color: #0864FF;
+$search-bar-height: 45px;
+$footer-height: 45px;
+$keep_orange: #FFB61C;
+
+.header{
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 23px;
+  min-height: 38px;
+  width: 100%;
+}
+
+.container{
+  padding: 0;
+  margin-top: $search-bar-height + 15px;
+  margin-bottom: $footer-height + 15px;
+  position: relative;
+  width: 100%;
+}
+.head{
+  background-color: $element-color;
+  width: 90%;
+  margin: 0 auto;
+  height: 20px;
+}
+
+.todo{
+  box-sizing: border-box;
+  font-size: 17px;
+  outline: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  position: relative;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  input[type="text"]{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-right: 45px;
+    padding-left: 30px;
+  }
+  input[type="checkbox"]{
+    position:absolute;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    top: 0;
+    margin: 10px 0 0 10px;
+  }
+  button{
+    width: 75px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: black;
+    border-radius: 6px;
+    border: 2px solid red;
+    color: white;
+    font: bold 16px;
+    margin: 2px 10px 0 10px;
+  }
+}
+.add-todo{
+  position: relative;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  input{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding: 0 100px 0 10px;
+  }
+  button{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: grey;
+    border-radius: 10%;
+    border: none;
+    color: white;
+    font: bold 25px;
+    padding: 0;
+    margin: 2px 10px 0 10px;
+  }
+}
+
+.add-element{
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  input{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+  }
+}
+  .btn{
+    width: 120px;
+    background-color: $element-color;
+    border: 2px solid $keep_orange;
+    color: #FFF;
+    height: 60px;
+    margin: 10px;
+    text-transform: uppercase;
+  }
+.sub-container{
+  margin: 0 auto;
+  width: 300px;
+}
+.note{
+  width: 100%;
+  height: 100%;
+}
+.logo{
+  position: absolute;
+  left: 0;
+}
+.icon{
+  position: absolute;
+  right: 190px;
+  top: 15px;
+}
+
+.search-bar{
+  background-color: $keep_orange;
+  height: $search-bar-height;
+  margin: 0 100px;
+  z-index: 5;
+  input{
+    box-sizing: border-box;
+    font-size: 25px; 
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  button{
+    background: grey;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    height: 35px;
+    margin: 5px 10px 0 10px;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35px;
+  }
+}
+
+.title{
+  font-weight: bold;
+  text-align: center;
+  font-size: 50px;
+  color:$element-color
+}
+
+.footer{
+  position: relative;
+  padding-top: 5px;
+  width: 100%;
+  height: 30px;
+}
+
+.general-footer{
+  padding: 10px 0 0 10px;
+  position: fixed;
+  width: 100%;
+  height: $footer-height;
+  bottom: 0;
+  left: 0;
+  background-color: $keep_orange;
+  z-index: 5;
+  font-size: 20px;
+  text-align: center;
+}
+
+.element{
+  position: relative;
+  width: 28%;
+  margin: 25px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  float: left;
+  padding: 0 20px;
+  margin-top: 15px;
+
+  .archivate{
+    background-color: black;
+    color: #fff;
+    position: absolute;;
+    top: 0;
+    right: 0;
+    border: 1px solid red;
+  }  
+  .colors{
+    height: 30px;
+    .color{
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 2px;
+      border-color: grey;
+      margin: 5px 0 0 5px;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+}
+
+.inline-text{
+  color: gray;
+  font-size: 10px;
+  font-style: italic;
+  text-align: right;
+}
+
+input{
+  background: transparent;
+  border: none;
+}
+
+body{
+  background: $backcolor;
+}
+
+::-webkit-input-placeholder {
+   color: grey;
+}
